@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to the 20's, Abhilash</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <section id="password-screen" class="screen active">
+    <div class="password-card" role="dialog" aria-labelledby="lock-title">
+      <div class="password-titlebar">
+        <span id="lock-title">Welcome</span>
+        <div class="password-window-controls" aria-hidden="true">
+          <span>_</span><span>□</span><span>×</span>
+        </div>
+      </div>
+
+      <div class="password-body">
+        <div class="welcome-heading">Welcome To The 20s, Abhilash</div>
+        <div class="password-label">Enter Password</div>
+        <input id="password-input" type="password" autocomplete="off" aria-label="Enter password">
+        <button id="unlock-button" type="button">OK</button>
+        <p id="password-error" class="error-message"></p>
+      </div>
+    </div>
+
+    <button id="hint-button" class="hint-button" type="button">Hint</button>
+
+    <div id="hint-popup" class="hint-popup" role="dialog" aria-modal="false" aria-hidden="true">
+      <div class="hint-titlebar">
+        <span>Password Hint</span>
+        <button id="hint-close" type="button" aria-label="Close hint">×</button>
+      </div>
+      <div class="hint-body">
+        <span class="hint-icon">?</span>
+        <p>Look around our house.</p>
+        <button id="hint-ok" type="button">OK</button>
+      </div>
+    </div>
+
+    <div class="lock-taskbar" aria-hidden="true">
+      <div class="lock-start"><span class="windows-logo">▦</span> Start</div>
+      <div class="lock-quicklaunch"><span>▣</span><span>✉</span><span>◈</span></div>
+      <div class="lock-taskbar-fill"></div>
+      <div class="lock-status">birthday.exe</div>
+    </div>
+  </section>
+
+  <!-- DESKTOP -->
+  <section id="desktop" class="desktop">
+
+    <div id="notification" class="notification">
+      <button class="notification-close" aria-label="Close">×</button>
+      <div class="notification-icon">✦</div>
+      <div>
+        <strong>Achievement unlocked</strong>
+        <p>You have successfully survived another year.</p>
+      </div>
+    </div>
+
+    <div class="desktop-icons">
+      <button class="desktop-icon" data-window="window-1">
+        <span class="folder-icon">♡</span>
+        <span>Abhi's Museum</span>
+      </button>
+
+      <button class="desktop-icon" data-window="window-2">
+        <span class="folder-icon">✦</span>
+        <span>Today's Newspaper</span>
+      </button>
+
+      <button class="desktop-icon" data-window="window-3">
+        <span class="folder-icon">♡</span>
+        <span>My Skill Tree</span>
+      </button>
+
+      <button class="desktop-icon" data-window="window-4">
+        <span class="folder-icon">☆</span>
+        <span>Music For Ablas</span>
+      </button>
+
+      <button class="desktop-icon" data-window="window-5">
+        <span class="folder-icon">♧</span>
+        <span>Open When...</span>
+      </button>
+
+      <button class="desktop-icon" data-window="window-6">
+        <span class="folder-icon">♡</span>
+        <span>Horoscope</span>
+      </button>
+
+      <button class="desktop-icon" data-window="window-7">
+        <span class="folder-icon">✧</span>
+        <span>Sweet Tooth</span>
+      </button>
+
+    </div>
+
+    <!-- EMPTY WINDOWS -->
+    <div class="window museum-window" id="window-1" style="--x: 31%; --y: 16%;">
+      <div class="window-titlebar">
+        <span>Abhi's Museum</span>
+        <div class="window-controls">
+          <button class="minimize">—</button>
+          <button class="close">×</button>
+        </div>
+      </div>
+      <div class="museum-home window-content">
+        <p class="museum-intro">A little archive of the person you became.</p>
+        <div class="exhibit-grid">
+          <button class="exhibit-folder" data-exhibit="1">
+            <span class="mini-folder">♡</span>
+            <span>Exhibit 1</span>
+            <small>Childhood</small>
+          </button>
+          <button class="exhibit-folder" data-exhibit="2">
+            <span class="mini-folder">✦</span>
+            <span>Exhibit 2</span>
+            <small>School + early college</small>
+          </button>
+          <button class="exhibit-folder" data-exhibit="3">
+            <span class="mini-folder">☆</span>
+            <span>Exhibit 3</span>
+            <small>Present day</small>
+          </button>
+          <button class="exhibit-folder" data-exhibit="4">
+            <span class="mini-folder">✧</span>
+            <span>Exhibit 4</span>
+            <small>The people + moments</small>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MUSEUM EXHIBIT VIEWER -->
+    <div class="exhibit-viewer" id="exhibit-viewer" aria-hidden="true">
+      <div class="exhibit-window">
+        <div class="window-titlebar">
+          <span id="exhibit-title">Exhibit</span>
+          <div class="window-controls">
+            <button id="exhibit-close" aria-label="Close exhibit">×</button>
+          </div>
+        </div>
+        <div class="exhibit-content">
+          <div class="exhibit-photo-frame">
+            <img id="exhibit-image" src="" alt="Museum exhibit collage">
+            <div class="photo-placeholder" id="photo-placeholder">
+              <span class="placeholder-icon">✧</span>
+              <strong>Add your collage here</strong>
+              <span id="placeholder-path">museum/exhibit-1.jpeg</span>
+            </div>
+          </div>
+          <div class="exhibit-actions">
+            <button id="fullscreen-photo" type="button">Full screen</button>
+            <button id="zoom-in" type="button">Zoom +</button>
+            <button id="zoom-out" type="button">Zoom −</button>
+            <button id="zoom-reset" type="button">Reset</button>
+          </div>
+          <p class="exhibit-caption" id="exhibit-caption"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-lightbox" id="photo-lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close full screen photo">×</button>
+      <img id="lightbox-image" src="" alt="Full screen museum collage">
+    </div>
+
+    <div class="window newspaper-window" id="window-2" style="--x: 51%; --y: 19%;">
+      <div class="window-titlebar">
+        <span>Today's Newspaper — Special Edition</span>
+        <div class="window-controls">
+          <button class="minimize" aria-label="Minimize newspaper">—</button>
+          <button class="close" aria-label="Close newspaper">×</button>
+        </div>
+      </div>
+      <div class="window-content newspaper-window-content">
+        <article class="newspaper-sheet" id="newspaper-sheet" aria-label="The Abhilash Times birthday edition">
+          <header class="paper-masthead">
+            <div class="paper-topline"><span>EXTRA! EXTRA!</span><span>INDEPENDENTLY UNRELIABLE SINCE BIRTH</span><span>VOL. XX · NO. 10</span></div>
+            <h1>THE ABHILASH TIMES</h1>
+            <div class="paper-subtitle">Birthday Edition <span>◆</span> October 10, 2026 <span>◆</span> Special Issue</div>
+          </header>
+
+          <section class="paper-lead">
+            <div class="paper-lead-copy">
+              <p class="paper-kicker">CULTURE · TELEVISION</p>
+              <h2>LOCAL MAN DECLARES <em>LANTERN</em> PEAK CINEMA</h2>
+              <p class="paper-deck">A local viewer has awarded the new show <em>Lanterns</em> the highest possible rating: “peak cinema.” Sources say the review was delivered with the confidence of a man who has personally inspected every frame and would like the record to show that Hal Jordan is, in fact, important.</p>
+              <p class="paper-byline">By The Entertainment Desk</p>
+            </div>
+            <div class="lantern-panel" role="img" aria-label="A monochrome comic-book-style television review illustration">
+              <div class="lantern-halftone"></div>
+              <div class="lantern-ring">L</div>
+              <div class="lantern-caption">LANTERN<br><span>PEAK CINEMA?</span></div>
+              <div class="lantern-stamp">5/5<br>NO NOTES</div>
+            </div>
+          </section>
+
+          <div class="paper-rule"><span>THE BIRTHDAY NEWS DESK</span></div>
+
+          <section class="paper-stories">
+            <article class="paper-story">
+              <p class="paper-kicker">GAMING · RELATIONSHIPS</p>
+              <h3>CHENNAI MAN'S DISPATCH DREAM MEETS A NOOB-LEVEL OBSTACLE</h3>
+              <p>A Chennai man once had a beautiful dream: to play <em>Dispatch</em> with his girlfriend. The dream encountered a small obstacle when Miss Girlfriend discovered that the game expects you to answer time-sensitive questions at the speed of light. “I knew what I wanted to do,” she reportedly said, “just not before the timer ended.” The man remains hopeful. Experts recommend patience, gentle coaching, and accepting that his co-player may need approximately seventeen business days to choose an option.</p>
+              <span class="paper-tag">BREAKING: GIRLFRIEND TRYING HER BEST</span>
+            </article>
+
+            <article class="paper-story">
+              <p class="paper-kicker">BLOCKCHAIN? NO. BLOCKS.</p>
+              <h3>ONE MAN, TEN FRIENDS, AND THE GREAT MINECRAFT ERA</h3>
+              <p>A 20-year-old has allegedly single-handedly sparked a Minecraft renaissance across a friend group of ten. What began as one man opening a world has become a community-wide commitment to placing blocks, building questionable structures, and announcing “one last thing” at hours when sensible citizens are asleep. Analysts are calling it a cultural movement. The subject has declined to comment, possibly because he is online.</p>
+              <div class="paper-quote">“It started with one world. It became a movement.”</div>
+            </article>
+
+            <article class="paper-story">
+              <p class="paper-kicker">CAMPUS · DESIGN</p>
+              <h3>FIGMA ENTHUSIAST ALSO RUNS GDG SRM CHENNAI; GIRLFRIEND CONFIRMS PRIDE</h3>
+              <p>SRM student, Figma enthusiast, and GDG SRM Chennai organizer continues to make things because apparently having ideas is not enough; they must also be designed, polished, aligned, and made real. The girlfriend, reached for comment, confirmed she is extremely proud. Sources say she has watched him care about the details and keep showing up, and would like the public to know that the title “organizer” is not the only impressive thing about him.</p>
+              <span class="paper-tag">LOCAL MAN DOES, IN FACT, HAVE RANGE</span>
+            </article>
+
+            <article class="paper-story paper-story-wide">
+              <p class="paper-kicker">TRAVEL · THE GREAT OUTDOORS</p>
+              <h3>MAN LONGS FOR SWITZERLAND'S MOUNTAINS; NATION HOPES HE GETS TO GO BACK</h3>
+              <p>Reports indicate that a certain young man still thinks fondly of Switzerland’s mountains. The yearning is real, the scenery remains undefeated, and the nation would like to see him return to the Alps someday. Officials hope his twenties bring him not just another trip, but the freedom to go after the places and experiences that make him feel most alive. A camera-roll incident is considered inevitable.</p>
+              <div class="mountain-sketch" aria-hidden="true"><span>△</span><span>▲</span><span>△</span><span>▲</span><span>△</span></div>
+            </article>
+          </section>
+
+
+          <div class="paper-rule"><span>THE CITY DESK · HABITS UNDER INVESTIGATION</span></div>
+          <section class="paper-stories paper-stories-extra">
+            <article class="paper-story">
+              <p class="paper-kicker">PUBLIC SAFETY · NIGHT SHIFT</p>
+              <h3>LOCAL MAN CHECKS GAS KNOB FOR THE 200TH TIME; GAS KNOB REMAINS OFF</h3>
+              <p>Residents report a familiar bedtime ritual: check the gas, go to bed, remember the gas, return to check the gas, and repeat until the appliance has been personally reassured beyond all reasonable doubt. The subject also prefers certain activities in groups of three or five. Mathematicians have been notified. The gas knob declined to comment.</p>
+              <span class="paper-tag">UPDATE: STILL CHECKING</span>
+            </article>
+            <article class="paper-story">
+              <p class="paper-kicker">PARLIAMENTARY AFFAIRS</p>
+              <h3>MINISTER OF OVERTHINKING OPENS NEW DEPARTMENT; BRAIN REPORTS BILLIONS OF OPEN TABS</h3>
+              <p>The newly appointed Minister of Overthinking has announced a Department of A Billion Things Going On in His Brain at Once. Its responsibilities include reviewing every possible outcome, worrying about people he loves, and beginning a debate that nobody knew was scheduled. The ministry says it is “just thinking things through.” Staff have requested a nap.</p>
+              <div class="paper-quote">“I have considered every angle.” — A man who has now considered twelve more.</div>
+            </article>
+            <article class="paper-story">
+              <p class="paper-kicker">FOOD · ECONOMICS</p>
+              <h3>MUNCH MAX AND CHICKEN INDUSTRY REPORT RECORD LEVELS OF LOYALTY</h3>
+              <p>In an extraordinary development, the subject has once again considered ordering food from outside. Chicken remains a dependable national resource, while Munch Max enjoys what analysts describe as “a frankly personal relationship with the consumer.” Financial advisers recommend a budget. The subject recommends looking at the menu first.</p>
+              <span class="paper-tag">MARKETS: HUNGRY</span>
+            </article>
+            <article class="paper-story">
+              <p class="paper-kicker">DEBATE · SPORT</p>
+              <h3>MAN ENTERS CASUAL DISCUSSION; EMERGES FROM FULL-SCALE DEBATE TOURNAMENT</h3>
+              <p>Witnesses say a normal conversation can become a competitive event when the subject believes a point needs defending. Experts remind the public that not every discussion has a winner. The subject has requested evidence supporting this claim and would like to respond in a structured rebuttal.</p>
+            </article>
+            <article class="paper-story paper-story-wide">
+              <p class="paper-kicker">BREAKING · TECHNICAL DIFFICULTIES</p>
+              <h3>MAN ATTEMPTS TO MUTE MICROPHONE; ACCIDENTALLY TURNS OFF CAMERA IN FART-RELATED INCIDENT</h3>
+              <p>In a shocking case of interface confusion, the subject reportedly attempted to protect a video call from an impending sound-related event by muting his microphone. Instead, he turned off his camera. The audio, unfortunately for his dignity and fortunately for the girlfriend’s sense of humour, remained very much available to the public. The incident has since been described as a landmark moment in remote communications.</p>
+              <div class="paper-quote">“The camera was off. The evidence was not.”</div>
+            </article>
+          </section>
+
+          <div class="paper-rule"><span>THE PEOPLE'S PAPER · EXCLUSIVE REPORTS</span></div>
+          <section class="paper-feature-grid">
+            <article class="paper-feature">
+              <p class="paper-kicker">INTERNATIONAL AFFAIRS · ROMANCE</p>
+              <h3>MAN FLIES TO OPPOSITE END OF COUNTRY TO MEET A GIRL; UPDATE: THEY FELL IN LOVE</h3>
+              <p>What initially sounded like an extremely ambitious travel itinerary has become a rather excellent story. A man flew across a country to meet a girl. One year later, the two are still together, and the girl has been granted exclusive access to this birthday edition. Analysts call the outcome “unexpectedly adorable” and “a strong argument for occasionally being brave enough to go.”</p>
+              <p class="paper-byline">The girlfriend, who is definitely not biased, confirms the man is worth the trip.</p>
+            </article>
+            <article class="paper-feature">
+              <p class="paper-kicker">CULTURE · FRIENDSHIP</p>
+              <h3>ANONYMOUS SOURCES SAY LOCAL MAN HAS “WAY TOO ADHD”; SOURCES IMMEDIATELY CHANGE SUBJECT</h3>
+              <p>Friends contacted for this report allegedly had several thoughts at once, began explaining them simultaneously, and supplied no single concise statement. The paper has chosen to interpret this as a glowing testimonial to the subject’s energy, enthusiasm, and ability to have many things going on at the same time. No diagnosis is being made by this newspaper. The sources have returned to their group chat.</p>
+            </article>
+          </section>
+
+          <section class="paper-bulletin">
+            <div class="bulletin-heading">THE ABHILASH TIMES — QUICK BRIEFINGS</div>
+            <div class="bulletin-grid">
+              <div><strong>HEALTH DESK</strong><p>Subject may stay up all night and disregard his own health. Concerned sources request that he please sleep, eat properly, and remember that being a person is also a full-time job.</p></div>
+              <div><strong>SPOTIFY DESK</strong><p>Girlfriend reports that one of her favourite love languages is him playing her favourite songs in a Spotify Jam. Authorities confirm this is a highly effective use of technology.</p></div>
+              <div><strong>MEMORY DESK</strong><p>Man allegedly remembers things his girlfriend mentioned once, including details she herself has forgotten. Last year’s handmade birthday gift cards and Valentine’s snacks have been entered into evidence.</p></div>
+              <div><strong>LANGUAGE DESK</strong><p>Subject’s use of “sweetheart” and “darling,” plus the particular way he says her name, continues to cause an unquantified but significant increase in girlfriend happiness.</p></div>
+            </div>
+          </section>
+
+          <section class="paper-advert">
+            <p class="paper-kicker">ADVERTISEMENT · PAID FOR BY ABSOLUTELY NOBODY</p>
+            <h3>TIRED OF HAVING A BILLION THOUGHTS AT ONCE?</h3>
+            <p>Try <strong>ABHI'S BRAIN™</strong> — now with 47 simultaneous tabs, one debate in progress, three future plans, five things to check before bed, and a song queued for someone he loves.</p>
+            <span>Side effects may include empathy, excessive consideration, and accidentally staying awake until sunrise.</span>
+          </section>
+
+          <section class="paper-editorial">
+            <p class="paper-kicker">THE EDITORIAL · FROM SOMEONE WHO KNOWS HIM</p>
+            <h2>IN OTHER NEWS, HE IS A REALLY GOOD PERSON.</h2>
+            <p>Behind the debates, the late nights, the projects, the food orders, and the brain with approximately a billion tabs open is someone deeply considerate. Someone who goes out of his way to do things people need or want. Someone whose empathy is not a headline or a performance, but a real part of how he moves through the world.</p>
+            <p>He may not always notice how rational he can be, how carefully he considers people, or how much love he has to give. But it is there, in the big gestures and the tiny details: remembering what someone said, making thoughtful gift cards, bringing snacks, choosing their favourite songs, and worrying because he cares.</p>
+            <p>For his twenties, the wish is simple: may he get to live the life he has always wanted. May he build things he is proud of, see the places he dreams about, feel happy in the life he is making, and one day look back and be able to say, with his whole chest, <em>I did it.</em></p>
+            <p class="editorial-signoff">And in the most important news of all: you are so loved, forever.</p>
+          </section>
+
+          <footer class="paper-footer">
+            <div><strong>THE WEATHER:</strong> 100% chance of birthday cake, 0% chance of the Minister of Overthinking having a quiet brain.</div>
+            <div><strong>CLASSIFIEDS:</strong> One very cool guy turns 20. Wanted: eight hours of sleep, a trip to Switzerland, unlimited chicken, and a lifetime supply of people who love him.</div>
+            <p>Printed with an unreasonable amount of affection. All quotations are dramatized, all statistics are fake, and the affection is entirely real.</p>
+          </footer>
+        </article>
+        <div class="paper-bottom-note">✦ END OF SPECIAL EDITION ✦</div>
+      </div>
+    </div>
+
+    <div class="window skill-window" id="window-3" style="--x: 37%; --y: 49%;">
+      <div class="window-titlebar">
+        <span>My Skill Tree — biometric scan</span>
+        <div class="window-controls">
+          <button class="minimize" aria-label="Minimize skill tree">—</button>
+          <button class="close" aria-label="Close skill tree">×</button>
+        </div>
+      </div>
+      <div class="window-content skill-window-content">
+        <section class="skill-scan-screen" id="skill-scan-screen">
+          <div class="skill-system-label">ABHI SKILL ANALYSIS SYSTEM <span>v2.0</span></div>
+          <h2>Skillset Identification</h2>
+          <p class="skill-instruction">Put your thumb on the screen to scan your skillset and click Enter simultaneously.</p>
+          <div class="fingerprint-pad" id="fingerprint-pad" role="img" aria-label="Fingerprint scan illustration">
+            <span class="fingerprint-ripple ripple-one"></span>
+            <span class="fingerprint-ripple ripple-two"></span>
+            <svg class="fingerprint-svg" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M50 12C29 12 15 27 15 47M50 22C35 22 25 33 25 48M50 32C40 32 35 40 35 50M50 12C71 12 85 27 85 47M50 22C65 22 75 33 75 48M50 32C60 32 65 40 65 50M18 55C18 78 30 91 42 94M28 57C28 75 34 84 43 88M38 58C38 72 41 78 47 82M82 55C82 78 70 91 58 94M72 57C72 75 66 84 57 88M62 58C62 72 59 78 53 82M50 43C44 43 42 48 42 54C42 63 47 68 50 72C53 68 58 63 58 54C58 48 56 43 50 43Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <span class="scan-line"></span>
+          </div>
+          <div class="scan-status" id="scan-status">AWAITING THUMBPRINT</div>
+          <button class="skill-enter-button" id="skill-enter-button" type="button"><span>↵</span> ENTER</button>
+          <p class="skill-fineprint">By proceeding, you consent to extremely scientific nonsense.</p>
+        </section>
+
+        <section class="skill-loading-screen" id="skill-loading-screen" aria-live="polite" hidden>
+          <div class="loading-orbit"><span>✦</span></div>
+          <h2>CALCULATING...</h2>
+          <p id="skill-loading-message">Measuring core abilities</p>
+          <div class="loading-track"><span></span></div>
+          <div class="loading-percent">PLEASE WAIT <span>•••</span></div>
+        </section>
+
+        <section class="skill-results-screen" id="skill-results-screen" hidden>
+          <div class="skill-results-heading">
+            <div><p class="skill-system-label">SCAN COMPLETE · SUBJECT: ABHILASH</p><h2>Skillset Report</h2></div>
+            <span class="verified-stamp">OFFICIALLY<br>UNOFFICIAL</span>
+          </div>
+          <p class="skill-results-intro">Results have been calculated using cutting-edge birthday science.</p>
+          <div class="skill-bars" id="skill-bars">
+            <div class="skill-row" data-level="99"><div class="skill-label"><span>Empathy</span><strong>99%</strong></div><div class="skill-track"><span class="skill-fill" style="--level:99%"></span></div></div>
+            <div class="skill-row" data-level="69"><div class="skill-label"><span>Humor</span><strong>69%</strong></div><div class="skill-track"><span class="skill-fill" style="--level:69%"></span></div></div>
+            <div class="skill-row" data-level="67"><div class="skill-label"><span>Confidence</span><strong>67%</strong></div><div class="skill-track"><span class="skill-fill" style="--level:67%"></span></div></div>
+            <div class="skill-row special-skill"><div class="skill-label"><span>Capability to eat</span><strong>INFINITE</strong></div><div class="skill-track infinite-track"><span class="skill-fill" style="--level:100%"></span><b>∞</b></div></div>
+            <div class="skill-row special-skill broken-skill"><div class="skill-label"><span>Overthinking</span><strong>LIMIT EXCEEDED</strong></div><div class="skill-track broken-track"><span class="skill-fill" style="--level:100%"></span><i>ERROR: SCALE NOT FOUND</i></div><p class="skill-note">The measuring device has requested a break.</p></div>
+            <div class="skill-row" data-level="11"><div class="skill-label"><span>Sleep</span><strong>11%</strong></div><div class="skill-track"><span class="skill-fill" style="--level:11%"></span></div></div>
+            <div class="skill-row special-skill overflow-skill"><div class="skill-label"><span>Cuteness</span><strong>111%</strong></div><div class="skill-track overflow-track"><span class="skill-fill" style="--level:100%"></span><b>+11%</b></div></div>
+            <div class="skill-row special-skill love-skill"><div class="skill-label"><span>Loved by GF</span><strong>GOOGOLPLEX%</strong></div><div class="skill-track love-track"><span class="skill-fill" style="--level:100%"></span><b>∞ + ♡</b></div></div>
+          </div>
+          <div class="skill-report-footer"><span>REPORT ID: ABHI-1010</span><span>ACCURACY: BIASED BUT SINCERE</span></div>
+          <button class="skill-rescan-button" id="skill-rescan-button" type="button">↻ SCAN AGAIN</button>
+        </section>
+      </div>
+    </div>
+
+    <div class="window music-window" id="window-4" style="--x: 57%; --y: 49%;">
+      <div class="window-titlebar">
+        <span>♫ Music For Ablas</span>
+        <div class="window-controls">
+          <button class="minimize" aria-label="Minimize music window">—</button>
+          <button class="close" aria-label="Close music window">×</button>
+        </div>
+      </div>
+      <div class="window-content music-window-content">
+        <div class="music-heading">
+          <span class="music-eyebrow">A VERY SMALL, VERY IMPORTANT COLLECTION</span>
+          <h2>Songs that feel like you.</h2>
+          <p>Seven favourites, saved here for you. Click a cover to listen.</p>
+        </div>
+        <div class="music-grid" id="music-grid">
+          <a class="song-card" href="https://www.youtube.com/results?search_query=Pearl+Jam+Future+Days+official+audio" target="_blank" rel="noopener noreferrer"><div class="album-art album-fallback"><span>♪</span></div><div class="song-info"><strong>Future Days</strong><span>Pearl Jam</span></div><span class="song-play">▶ LISTEN</span></a>
+          <a class="song-card" href="https://www.youtube.com/results?search_query=Joji+Past+Won%27t+Leave+My+Bed" target="_blank" rel="noopener noreferrer"><div class="album-art album-fallback"><span>♪</span></div><div class="song-info"><strong>Past Won't Leave My Bed</strong><span>Joji</span></div><span class="song-play">▶ LISTEN</span></a>
+          <a class="song-card" href="https://www.youtube.com/results?search_query=Panchiko+Deathmetal+Live" target="_blank" rel="noopener noreferrer"><div class="album-art album-fallback"><span>♪</span></div><div class="song-info"><strong>Deathmetal (Live)</strong><span>Panchiko</span></div><span class="song-play">▶ LISTEN</span></a>
+          <a class="song-card" href="https://www.youtube.com/results?search_query=Phoebe+Bridgers+The+Outside" target="_blank" rel="noopener noreferrer"><div class="album-art album-fallback"><span>♪</span></div><div class="song-info"><strong>The Outside</strong><span>Phoebe Bridgers</span></div><span class="song-play">▶ LISTEN</span></a>
+          <a class="song-card" href="https://www.youtube.com/results?search_query=Olivia+Dean+Love+Me+Not+cover" target="_blank" rel="noopener noreferrer"><div class="album-art album-fallback"><span>♪</span></div><div class="song-info"><strong>Love Me Not</strong><span>Olivia Dean's cover</span></div><span class="song-play">▶ LISTEN</span></a>
+          <a class="song-card" href="https://www.youtube.com/results?search_query=Gracie+Abrams+Risk+official+audio" target="_blank" rel="noopener noreferrer"><div class="album-art album-fallback"><span>♪</span></div><div class="song-info"><strong>Risk</strong><span>Gracie Abrams</span></div><span class="song-play">▶ LISTEN</span></a>
+          <a class="song-card" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Honeybee" target="_blank" rel="noopener noreferrer"><div class="album-art album-fallback"><span>♪</span></div><div class="song-info"><strong>Honeybee</strong><span>Olivia Rodrigo</span></div><span class="song-play">▶ LISTEN</span></a>
+        </div>
+        <p class="music-footnote">The first one has a little extra meaning. You know why. ♡</p>
+      </div>
+    </div>
+
+    <div class="window" id="window-5" style="--x: 28%; --y: 68%;">
+      <div class="window-titlebar">
+        <span>Open When...</span>
+        <div class="window-controls">
+          <button class="minimize">—</button>
+          <button class="close">×</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <div class="empty-symbol">♧</div>
+        <p>More birthday magic coming soon.</p>
+      </div>
+    </div>
+
+    <div class="window" id="window-6" style="--x: 54%; --y: 68%;">
+      <div class="window-titlebar">
+        <span>Horoscope</span>
+        <div class="window-controls">
+          <button class="minimize">—</button>
+          <button class="close">×</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <div class="empty-symbol">♡</div>
+        <p>Nothing here yet.</p>
+      </div>
+    </div>
+
+    <div class="window" id="window-7" style="--x: 43%; --y: 31%;">
+      <div class="window-titlebar">
+        <span>Sweet Tooth</span>
+        <div class="window-controls">
+          <button class="minimize">—</button>
+          <button class="close">×</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <div class="empty-symbol">✧</div>
+        <p>Coming soon.</p>
+      </div>
+    </div>
+
+    <!-- VISUAL TASKBAR -->
+    <div class="taskbar">
+      <button class="start-button"><span class="start-logo">▦</span> Start</button>
+      <div class="taskbar-divider"></div>
+      <button class="taskbar-app" aria-label="Email">✉</button>
+      <button class="taskbar-app" aria-label="AbhiGPT">◈</button>
+      <div class="taskbar-spacer"></div>
+      <div class="taskbar-clock">
+        <span>10/10/2026</span>
+        <span>11:11</span>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
